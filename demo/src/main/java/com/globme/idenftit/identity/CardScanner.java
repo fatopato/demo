@@ -46,20 +46,4 @@ public class CardScanner {
             userBlob.setCardObjs(bs2Card.getCard());
         }
     }
-
-    public static void main(String[] args) {
-        CommunicationManager.testConnect();
-        BS2Card bs2Card = scanCardById(Config.TEST_DEVICE_ID_W2);
-        BS2UserBlob user = UserManager.createUserBlob(2231);
-        BS2UserBlob[] userlist = new BS2UserBlob[1];
-        userlist[0] = user;
-        System.out.println(user.getUser().getNumCards());
-        addCardToUserBlob(user, bs2Card);
-        System.out.println(user.getUser().getNumCards());
-        UserManager.enrollUser(Config.TEST_DEVICE_ID_W2,userlist);
-        System.out.println("hi");
-        int i1 = BS_SDK_V2.BS2_VerifyUser(context, Config.TEST_DEVICE_ID_W2, 1, 1, user);
-        System.out.println(i1);
-
-    }
 }

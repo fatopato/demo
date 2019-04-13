@@ -24,6 +24,7 @@ public class UserManagerTest {
         userBlobs[0] = userBlob;
         int i = UserManager.enrollUser(Config.TEST_DEVICE_ID_W2, userBlobs);
         assertEquals(1,i);
+
     }
 
     @Test

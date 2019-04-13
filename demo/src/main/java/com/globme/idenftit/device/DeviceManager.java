@@ -41,6 +41,23 @@ public class DeviceManager {
         return deviceList;
     }
 
+    public static Device getDeviceInfoById(long deviceId){
+        ContextCreator contextCreator = ContextCreator.getInstance();
+        try {
+            contextCreator.initializeContext();
+        } catch (ContextCanNotInitializedException e) {
+            e.printStackTrace();
+        }
+        try {
+            context = contextCreator.getContext();
+        } catch (ContextIsNotInitializedException e) {
+            e.printStackTrace();
+        }
+        BS2SimpleDeviceInfo bs2SimpleDeviceInfo = new BS2SimpleDeviceInfo();
+        BS_SDK_V2.BS2_GetDeviceInfo(context,deviceId,bs2SimpleDeviceInfo);
+        return DeviceMapper.getDevice(bs2SimpleDeviceInfo);
+    }
+
     private static BS2SimpleDeviceInfo[] getDeviceInfos(){
 
         ContextCreator contextCreator = ContextCreator.getInstance();
@@ -70,7 +87,7 @@ public class DeviceManager {
         return deviceInfos;
     }
     //It requires to initialize, search devices, get devices. Not need to connect device
-    private static BS2SimpleDeviceInfo getDeviceInfo(long deviceId){
+    public static BS2SimpleDeviceInfo getBs2DeviceInfoById(long deviceId){
         BS2SimpleDeviceInfo deviceInfo = new BS2SimpleDeviceInfo();
         BS_SDK_V2.BS2_GetDeviceInfo(context,deviceId,deviceInfo);
         return deviceInfo;

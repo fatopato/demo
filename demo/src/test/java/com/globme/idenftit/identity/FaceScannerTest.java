@@ -31,6 +31,7 @@ public class FaceScannerTest {
         userBlobs[0] = userBlob;
         int i = UserManager.enrollUser(Config.TEST_DEVICE_ID_FACESTATION, userBlobs);
         System.out.println(i);
+        bs2Face.toString();
     }
     @Test
     public void removeUserAndFace(){

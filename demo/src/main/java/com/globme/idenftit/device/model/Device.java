@@ -2,10 +2,12 @@ package com.globme.idenftit.device.model;
 
 import com.globme.idenftit.common.Config;
 import com.globme.idenftit.communication.CommunicationManager;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Device {
 

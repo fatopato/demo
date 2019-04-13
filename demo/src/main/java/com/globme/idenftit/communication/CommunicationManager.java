@@ -1,6 +1,7 @@
 package com.globme.idenftit.communication;
 
 import com.globme.idenftit.common.Config;
+import com.globme.idenftit.device.model.Device;
 import com.globme.idenftit.exceptions.ContextCanNotInitializedException;
 import com.globme.idenftit.exceptions.ContextIsNotInitializedException;
 import com.globme.idenftit.utils.ContextCreator;
@@ -33,6 +34,7 @@ public class CommunicationManager {
         }
         return BS_SDK_V2.BS2_SearchDevices(context);
     }
+
 
     public static ArrayList<Long> getDeviceIds() {
         ContextCreator contextCreator = ContextCreator.getInstance();
